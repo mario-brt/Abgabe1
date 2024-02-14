@@ -1,6 +1,6 @@
 package edu.student.kit;
 
-public class Memory {
+public class Memory {//TESTETSTTSTST
 
     public final MemoryCell[] MEMORY_CELLS;
 
