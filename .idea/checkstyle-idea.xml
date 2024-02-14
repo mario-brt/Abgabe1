@@ -2,11 +2,11 @@
 <project version="4">
   <component name="CheckStyle-IDEA" serialisationVersion="2">
     <checkstyleVersion>10.13.0</checkstyleVersion>
-    <scanScope>JavaOnly</scanScope>
+    <scanScope>Everything</scanScope>
     <copyLibs>true</copyLibs>
     <option name="thirdPartyClasspath" />
     <option name="activeLocationIds">
-      <option value="6b2af0ad-1cca-4780-b237-14818fa1386c" />
+      <option value="54636f92-3cdd-4ae5-8cb2-3e0c505bc501" />
     </option>
     <option name="locations">
       <list>
