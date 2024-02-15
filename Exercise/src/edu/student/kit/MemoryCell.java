@@ -2,7 +2,7 @@ package edu.student.kit;
 
 public class MemoryCell {
 
-    private String aiCommand;
+    private Commands aiCommand;
     private int argument1;
     private int argument2;
     private final String symbol;
@@ -12,7 +12,7 @@ public class MemoryCell {
     }
 
     //Setter
-    public void setAiCommand(String aiCommand) {
+    public void setAiCommand(Commands aiCommand) {
         this.aiCommand = aiCommand;
     }
 
@@ -25,7 +25,7 @@ public class MemoryCell {
     }
 
     //Getter
-    public String getAiCommand() {
+    public Commands getAiCommand() {
         return aiCommand;
     }
 
