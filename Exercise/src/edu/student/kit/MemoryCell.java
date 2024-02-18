@@ -1,5 +1,7 @@
 package edu.student.kit;
 
+import edu.student.kit.command.Commands;
+
 public class MemoryCell {
 
     private Commands aiCommand;

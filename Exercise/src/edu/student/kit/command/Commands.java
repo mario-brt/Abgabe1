@@ -1,4 +1,4 @@
-package edu.student.kit;
+package edu.student.kit.command;
 
 public enum Commands {
     STOP,
