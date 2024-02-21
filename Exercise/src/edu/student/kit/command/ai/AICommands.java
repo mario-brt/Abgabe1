@@ -1,6 +1,6 @@
-package edu.student.kit.command;
+package edu.student.kit.command.ai;
 
-public enum Commands {
+public enum AICommands {
     STOP,
     MOV_R,
     MOV_I,

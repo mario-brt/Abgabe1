@@ -1,21 +1,23 @@
 package edu.student.kit;
 
-import edu.student.kit.command.Commands;
+import edu.student.kit.command.ai.AICommands;
 
 public class MemoryCell {
 
-    private Commands aiCommand;
+    private AICommands aiCommand;
     private int argument1;
     private int argument2;
     private final String symbol;
+    private boolean wasEdited = false;
 
     public MemoryCell(String symbol) {
         this.symbol = symbol;
     }
 
     //Setter
-    public void setAiCommand(Commands aiCommand) {
+    public void setAiCommand(AICommands aiCommand) {
         this.aiCommand = aiCommand;
+        wasEdited = true;
     }
 
     public void setArgument1(int argument1) {
@@ -27,8 +29,8 @@ public class MemoryCell {
     }
 
     //Getter
-    public Commands getAiCommand() {
-        return aiCommand;
+    public AICommands getAiCommand() {
+        return this.aiCommand;
     }
 
     public int getArgument1() {
@@ -41,6 +43,9 @@ public class MemoryCell {
 
     public String getSymbol() {
         return symbol;
+    }
+    public boolean isWasEdited() {
+        return wasEdited;
     }
 
 

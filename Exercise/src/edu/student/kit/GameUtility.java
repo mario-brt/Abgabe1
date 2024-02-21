@@ -1,17 +1,24 @@
 package edu.student.kit;
 
-public final class GameUtility {
+import edu.student.kit.userinteaction.InOutput;
+
+public abstract class GameUtility {
     private static final int MEMORY_MIN_VALUE = 7;
     private static final int MEMORY_MAX_VALUE = 1337;
     private static final String MEMORY_ERROR_MESSAGE = "Error, your value for the memory size is not an allowed value";
     private static final String SYMBOLS_ERROR_MESSAGE = "Error, the given symbols are not allowed";
     private static final String GREETING_MESSAGE = "Welcome to CodeFight 2024. Enter 'help' for more details.";
 
-    private GameUtility() {
+    public GameUtility() {
 
     }
 
-    private static boolean checkArguments(String[] args) {
+    public static void initializeGame(String[] args) {
+        if (checkArgumentsGameStart(args)) {
+            Memory memory = new Memory(Integer.parseInt(args[0]) - 1);
+        }
+    }
+    private static boolean checkArgumentsGameStart(String[] args) {
         if(checkMemorySize(args)) {
             if (checkArgumentsLength(args)) {
                 if (checkArgumentsRepetitive(args)){
@@ -50,7 +57,7 @@ public final class GameUtility {
         try {
             memorySize = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
-            System.out.println(MEMORY_ERROR_MESSAGE);
+            InOutput.print(MEMORY_ERROR_MESSAGE);
         }
         if (memorySize != 0) {
             return memorySize <= MEMORY_MAX_VALUE && memorySize >= MEMORY_MIN_VALUE;
@@ -62,12 +69,12 @@ public final class GameUtility {
     private static boolean checkSymbols(String[] symbols) {
         for (String symbol : symbols) {
             if (symbol.contains(" ")) {
-                System.out.println(SYMBOLS_ERROR_MESSAGE);
+                InOutput.print(SYMBOLS_ERROR_MESSAGE);
                 return false;
             }
             for (String otherSymbol : symbols) {
                 if (symbol.equals(otherSymbol) && (symbol != otherSymbol)) {
-                    System.out.println(SYMBOLS_ERROR_MESSAGE);
+                    InOutput.print(SYMBOLS_ERROR_MESSAGE);
                     return false;
                 }
             }
@@ -76,10 +83,10 @@ public final class GameUtility {
         return true;
     }
 
-
-    public static void initializeGame(String[] args) {
-        if (checkArguments(args)) {
-            Memory memory = new Memory(Integer.parseInt(args[0]) - 1);
-        }
+    private static boolean checkArgumentsAddCommand(String arguments) {
+        return true;
     }
+
+
+
 }
