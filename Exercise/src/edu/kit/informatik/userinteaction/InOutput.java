@@ -1,4 +1,4 @@
-package edu.student.kit.userinteaction;
+package edu.kit.informatik.userinteaction;
 
 import java.util.Scanner;
 

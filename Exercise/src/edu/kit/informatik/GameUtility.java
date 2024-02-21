@@ -1,6 +1,6 @@
-package edu.student.kit;
+package edu.kit.informatik;
 
-import edu.student.kit.userinteaction.InOutput;
+import edu.kit.informatik.userinteaction.InOutput;
 
 public abstract class GameUtility {
     private static final int MEMORY_MIN_VALUE = 7;
@@ -8,6 +8,8 @@ public abstract class GameUtility {
     private static final String MEMORY_ERROR_MESSAGE = "Error, your value for the memory size is not an allowed value";
     private static final String SYMBOLS_ERROR_MESSAGE = "Error, the given symbols are not allowed";
     private static final String GREETING_MESSAGE = "Welcome to CodeFight 2024. Enter 'help' for more details.";
+    private static final String INIT_MODE_RANDOM = "INIT_MODE_RANDOM";
+    private static final String INIT_MODE_STOP = "INIT_MODE_STOP";
 
     public GameUtility() {
 
@@ -18,7 +20,7 @@ public abstract class GameUtility {
             Memory memory = new Memory(Integer.parseInt(args[0]) - 1);
         }
     }
-    private static boolean checkArgumentsGameStart(String[] args) {
+    protected static boolean checkArgumentsGameStart(String[] args) {
         if(checkMemorySize(args)) {
             if (checkArgumentsLength(args)) {
                 if (checkArgumentsRepetitive(args)){
@@ -85,6 +87,23 @@ public abstract class GameUtility {
 
     private static boolean checkArgumentsAddCommand(String arguments) {
         return true;
+    }
+
+    private void setInitMode(String mode) {
+        int platzhalter = 0;
+        if (mode.contains(INIT_MODE_RANDOM)) {
+            setInitModeRandom(platzhalter);
+        } else {
+            setInitModeStop();
+        }
+    }
+
+    private void setInitModeRandom(int seed) {
+
+    }
+
+    private void setInitModeStop() {
+
     }
 
 

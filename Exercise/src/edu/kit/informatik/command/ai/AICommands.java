@@ -1,4 +1,4 @@
-package edu.student.kit.command.ai;
+package edu.kit.informatik.command.ai;
 
 public enum AICommands {
     STOP,

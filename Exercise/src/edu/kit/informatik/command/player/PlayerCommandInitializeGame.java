@@ -1,4 +1,4 @@
-package edu.student.kit.command.player;
+package edu.kit.informatik.command.player;
 
 public enum PlayerCommandInitializeGame {
     START_GAME,

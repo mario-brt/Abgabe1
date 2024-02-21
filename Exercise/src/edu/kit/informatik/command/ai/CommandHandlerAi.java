@@ -1,7 +1,6 @@
-package edu.student.kit.command.ai;
+package edu.kit.informatik.command.ai;
 
-import edu.student.kit.Memory;
-import edu.student.kit.command.ai.AICommands;
+import edu.kit.informatik.Memory;
 
 public class CommandHandlerAi {
 
