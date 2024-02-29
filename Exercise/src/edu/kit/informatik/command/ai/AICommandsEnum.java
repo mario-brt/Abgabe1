@@ -1,6 +1,6 @@
 package edu.kit.informatik.command.ai;
 
-public enum AICommands {
+public enum AICommandsEnum {
     STOP(0),
     MOV_R(1),
     MOV_I(2),
@@ -13,7 +13,7 @@ public enum AICommands {
 
     private final int position;
 
-    AICommands (final int newPosition) {
+    AICommandsEnum(final int newPosition) {
         position = newPosition;
     }
 

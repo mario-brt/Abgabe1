@@ -1,21 +1,23 @@
 package edu.kit.informatik;
 
+import edu.kit.informatik.command.ai.AiCommand;
+
 public class ArtificialIntelligence {
 
 
 
     private  final String name;
-    private final String[] commandChain;
+    private final AiCommand[] commands;
     private int commandChainIndex = 0;
 
 
-    public ArtificialIntelligence(String name, String[] commandChain) {
+    public ArtificialIntelligence(String name, AiCommand[] commandChain) {
         this.name = name;
-        this.commandChain = new String[commandChain.length];
+        this.commands = new AiCommand[commandChain.length];
     }
 
-    public String[] getCommandChain() {
-        return commandChain;
+    public AiCommand[] getCommandChain() {
+        return commands;
     }
 
     public String getName() {
@@ -26,6 +28,6 @@ public class ArtificialIntelligence {
         return commandChainIndex;
     }
     public void setCommandChainIndex() {
-        this.commandChainIndex = (commandChainIndex + 1) % commandChain.length;
+        this.commandChainIndex = (commandChainIndex + 1) % commands.length;
     }
 }

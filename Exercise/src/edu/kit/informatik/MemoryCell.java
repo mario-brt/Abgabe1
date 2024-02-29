@@ -1,10 +1,10 @@
 package edu.kit.informatik;
 
-import edu.kit.informatik.command.ai.AICommands;
+import edu.kit.informatik.command.ai.AICommandsEnum;
 
 public class MemoryCell {
 
-    private AICommands aiCommand;
+    private AICommandsEnum aiCommand;
     private int argument1;
     private int argument2;
     private final String symbol;
@@ -15,7 +15,7 @@ public class MemoryCell {
     }
 
     //Setter
-    public void setAiCommand(AICommands aiCommand) {
+    public void setAiCommand(AICommandsEnum aiCommand) {
         this.aiCommand = aiCommand;
         wasEdited = true;
     }
@@ -29,7 +29,7 @@ public class MemoryCell {
     }
 
     //Getter
-    public AICommands getAiCommand() {
+    public AICommandsEnum getAiCommand() {
         return this.aiCommand;
     }
 

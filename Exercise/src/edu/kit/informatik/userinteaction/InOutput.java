@@ -8,7 +8,7 @@ public class InOutput {
         String nextInput;
         Scanner scanner = new Scanner(System.in);
         nextInput = scanner.nextLine();
-        scanner.close();
+
         return nextInput;
     }
 

@@ -1,8 +1,9 @@
 package edu.kit.informatik;
 
+
 public class Game extends GameUtility{
     private Memory memory;
-    private static final String GREETING_MESSAGE = "Welcome to CodeFight 2024. Enter 'help' for more details.";
+
 
     public Game (String[] args){
         if(checkArgumentsGameStart(args)) {
@@ -11,6 +12,10 @@ public class Game extends GameUtility{
     }
 
     public void playCodeFight() {
+
+        if(initializeGame(memory)) {
+            startGame();
+        }
 
     }
 }

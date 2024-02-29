@@ -4,8 +4,10 @@ import edu.kit.informatik.Memory;
 
 public class CommandHandlerAi {
 
-    public void executeAiCommand(Memory memory, AICommands AICommands, int argA, int argB) {
-        switch(AICommands){
+
+
+    public void executeAiCommand(Memory memory, AICommandsEnum AICommandsEnum, int argA, int argB) {
+        switch(AICommandsEnum){
             case STOP:
                 stop();
                 break;
