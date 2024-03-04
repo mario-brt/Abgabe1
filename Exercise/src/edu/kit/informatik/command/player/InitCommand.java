@@ -32,7 +32,7 @@ public class InitCommand implements CommandPlayer {
                 } catch (NumberFormatException e) {
                     return new CommandResult(CommandResultType.FAILURE, "your seed is invalid");
                 }
-                if(seed >= 7 && seed <= 1337) {
+                if(seed >= -1337 && seed <= 1337) {
                     commandHandlerPlayer.setInitMode(commandArguments);
                     return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from "+ oldInitMode[0] + " to " + commandArguments[0] + " " + commandArguments[1]);
                 } else {

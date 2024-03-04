@@ -4,6 +4,8 @@ package edu.kit.informatik.command.player;
 import edu.kit.informatik.ArtificialIntelligence;
 import edu.kit.informatik.MemoryCell;
 import edu.kit.informatik.command.CommandResult;
+import edu.kit.informatik.command.ai.AICommandsEnum;
+import edu.kit.informatik.command.ai.AiCommand;
 import edu.kit.informatik.userinteaction.InOutput;
 
 import java.util.*;
@@ -19,6 +21,7 @@ public final class CommandHandlerPlayer {
     private static final String REMOVE_COMMAND_NAME = "remove-ai";
     private static final String START_COMMAND_NAME = "start-game";
     private static final String INVALID_RESULT_TYPE_FORMAT = "Unexpected value: %s";
+    private static int MAX_AIS;
 
 
     private final MemoryCell[] memory;
@@ -28,7 +31,28 @@ public final class CommandHandlerPlayer {
     private GameState gameState = GameState.INIT_PHASE;
 
     private static String[] initMode = new String[2];
-    private static List<ArtificialIntelligence> aiList= new ArrayList<>();
+
+
+
+
+    private static final ArtificialIntelligence[] aiArray = new ArtificialIntelligence[5];
+
+    public void setAiList(List<ArtificialIntelligence> aiList) {
+        CommandHandlerPlayer.aiList = aiList;
+    }
+
+    public List<ArtificialIntelligence> getAiList() {
+        return aiList;
+    }
+
+    private static List<ArtificialIntelligence> aiList = new ArrayList<>();
+
+    public ArtificialIntelligence[] getAiArray() {
+        return aiArray;
+    }
+    public void setAiArray(int index, ArtificialIntelligence ai) {
+        aiArray[index] = ai;
+    }
     public String[] getInitMode() {
         return initMode;
     }
@@ -37,12 +61,14 @@ public final class CommandHandlerPlayer {
         CommandHandlerPlayer.initMode = initMode;
     }
 
-    public CommandHandlerPlayer(MemoryCell[] memory) {
+    public CommandHandlerPlayer(MemoryCell[] memory, int maxAis) {
         this.memory = Objects.requireNonNull(memory);
         this.commands = new HashMap<>();
         this.initCommands();
         initMode[0] = "INIT_MODE_STOP";
         initMode[1] = "";
+        MAX_AIS = maxAis;
+
     }
 
 

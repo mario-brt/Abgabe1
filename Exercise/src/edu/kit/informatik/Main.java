@@ -19,11 +19,15 @@ public class Main {
             for (int i = 0; i < memory.length; i++) {
                 memory[i] = new MemoryCell();
             }
-            CommandHandlerPlayer commandPlayer = new CommandHandlerPlayer(memory);
+            CommandHandlerPlayer commandPlayer = new CommandHandlerPlayer(memory, calcMaxAis(args));
             commandPlayer.handleUserInput();
         }
 
 
+    }
+
+    private static int calcMaxAis(String[] args){
+        return (args.length - 5) / 2;
     }
     private static boolean checkArgumentsGameStart(String[] args) {
 
@@ -41,7 +45,7 @@ public class Main {
     }
 
     private static boolean checkArgumentsLength(String[] args) {
-        return args.length >= 9;
+        return args.length >= 9 && args.length % 2 == 1;
     }
 
     private static boolean checkMemorySize(String[] args) {

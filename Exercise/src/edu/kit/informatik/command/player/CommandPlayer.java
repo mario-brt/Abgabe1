@@ -15,6 +15,8 @@ public interface CommandPlayer {
      */
     CommandResult execute(MemoryCell[] memory, String[] commandArguments, GameState gameState);
 
+
+
     /**
      * Returns the number of arguments that the command expects.
      *
