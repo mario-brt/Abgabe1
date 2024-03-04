@@ -4,8 +4,12 @@ import edu.kit.informatik.MemoryCell;
 import edu.kit.informatik.command.CommandResult;
 import edu.kit.informatik.command.CommandResultType;
 
-public class HelpCommand implements CommandPlayer{
-
+/**
+ * Represents a command for displaying help information.
+ * @author uistu
+ * @author Programmieren-Team
+ */
+public class HelpCommand implements CommandPlayer {
 
     private static final String ADD_AI_COMMAND_DESCRIPTION =
             "add-ai: Adds an AI with a name and a list of commands which can be chosen by you";
@@ -25,11 +29,14 @@ public class HelpCommand implements CommandPlayer{
 
     private static final String HELP_COMMAND_DESCRIPTION = "help: shows all the available commands";
     private static final String QUIT_COMMAND_DESCRIPTION = "quit: ends the game immediately";
+
     /**
-     * @param memory           the memory to execute the command on
-     * @param commandArguments the arguments of the command
-     * @param gameState the state of the game
-     * @return
+     * Executes the help command based on the current game state.
+     *
+     * @param memory           the memory to execute the command on (not used in this implementation)
+     * @param commandArguments the arguments of the command (not used in this implementation)
+     * @param gameState        the state of the game
+     * @return the result of executing the command
      */
     @Override
     public CommandResult execute(MemoryCell[] memory, String[] commandArguments, GameState gameState) {
@@ -51,7 +58,9 @@ public class HelpCommand implements CommandPlayer{
     }
 
     /**
-     * @return number of arguments
+     * Gets the number of arguments required for this command.
+     *
+     * @return the number of arguments required
      */
     @Override
     public int getNumberOfArguments() {

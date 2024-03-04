@@ -1,15 +1,16 @@
 package edu.kit.informatik.command.player;
 
-
 import edu.kit.informatik.ArtificialIntelligence;
 import edu.kit.informatik.MemoryCell;
 import edu.kit.informatik.command.CommandResult;
-import edu.kit.informatik.command.ai.AICommandsEnum;
-import edu.kit.informatik.command.ai.AiCommand;
-import edu.kit.informatik.userinteaction.InOutput;
 
 import java.util.*;
 
+/**
+ * This class handles the commands issued by the player and executes them.
+ * @author uistu
+ * @author Programmieren-Team
+ */
 public final class CommandHandlerPlayer {
 
     private static final String COMMAND_SEPARATOR_REGEX = " +";
@@ -24,52 +25,65 @@ public final class CommandHandlerPlayer {
     private static final String HELP_COMMAND_NAME = "help";
     private static final String QUIT_COMMAND_NAME = "quit";
 
-
-    private static int MAX_AIS;
-
-    public int getMaxAis() {
-        return MAX_AIS;
-    }
     private final MemoryCell[] memory;
     private final Map<String, CommandPlayer> commands;
     private boolean running = false;
-
     private GameState gameState = GameState.INIT_PHASE;
-
     private static String[] initMode = new String[2];
+    private static List<ArtificialIntelligence> aiList = new ArrayList<>();
 
-
-
-
+    /**
+     * Sets the list of artificial intelligences.
+     *
+     * @param aiList The list of artificial intelligences to set
+     */
     public void setAiList(List<ArtificialIntelligence> aiList) {
         CommandHandlerPlayer.aiList = aiList;
     }
 
+    /**
+     * Gets the list of artificial intelligences.
+     *
+     * @return The list of artificial intelligences
+     */
     public List<ArtificialIntelligence> getAiList() {
         return aiList;
     }
 
-    private static List<ArtificialIntelligence> aiList = new ArrayList<>();
-
+    /**
+     * Gets the current initialization mode.
+     *
+     * @return The current initialization mode
+     */
     public String[] getInitMode() {
         return initMode;
     }
 
+    /**
+     * Sets the initialization mode.
+     *
+     * @param initMode The initialization mode to set
+     */
     public void setInitMode(String[] initMode) {
         CommandHandlerPlayer.initMode = initMode;
     }
 
-    public CommandHandlerPlayer(MemoryCell[] memory, int maxAis) {
+    /**
+     * Constructs a new CommandHandlerPlayer instance with the given memory.
+     *
+     * @param memory The memory to initialize
+     */
+    public CommandHandlerPlayer(MemoryCell[] memory) {
         this.memory = Objects.requireNonNull(memory);
         this.commands = new HashMap<>();
         this.initCommands();
         initMode[0] = "INIT_MODE_STOP";
         initMode[1] = "";
-        MAX_AIS = maxAis;
-
     }
 
-
+    /**
+     * Handles the user input and executes the commands.
+     */
     public void handleUserInput() {
         this.running = true;
 
@@ -80,6 +94,9 @@ public final class CommandHandlerPlayer {
         }
     }
 
+    /**
+     * Quits the command handler, stopping user input processing.
+     */
     public void quit() {
         this.running = false;
     }
@@ -113,7 +130,6 @@ public final class CommandHandlerPlayer {
         }
     }
 
-
     private void initCommands() {
         this.addCommand(QUIT_COMMAND_NAME, new QuitCommand(this));
         this.addCommand(INIT_COMMAND_NAME, new InitCommand(this));
@@ -121,13 +137,9 @@ public final class CommandHandlerPlayer {
         this.addCommand(REMOVE_COMMAND_NAME, new RemoveCommand(this));
         this.addCommand(HELP_COMMAND_NAME, new HelpCommand());
         this.addCommand(START_COMMAND_NAME, new StartCommand(this));
-
     }
-    public void changeInitMode(String[] mode) {
 
-    }
     private void addCommand(String commandName, CommandPlayer command) {
         this.commands.put(commandName, command);
     }
-
 }

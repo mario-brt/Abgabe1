@@ -6,6 +6,8 @@ import edu.kit.informatik.command.CommandResultType;
 
 /**
  * Represents a command for initializing the game state.
+ * @author uistu
+ * @author Programmieren-Team
  */
 public class InitCommand implements CommandPlayer {
 
@@ -40,10 +42,12 @@ public class InitCommand implements CommandPlayer {
             if (commandArguments[0].equals("INIT_MODE_STOP")) {
                 newCommandArguments[1] = "";
                 commandHandlerPlayer.setInitMode(commandArguments);
-                if(oldInitMode[0].equals("INIT_MODE_STOP")) {
-                    return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from " + oldInitMode[0] + " to " + newCommandArguments[0]);
+                if (oldInitMode[0].equals("INIT_MODE_STOP")) {
+                    return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from "
+                            + oldInitMode[0] + " to " + newCommandArguments[0]);
                 } else {
-                    return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from " + oldInitMode[0] + " " + oldInitMode[1] + " to " + newCommandArguments[0]);
+                    return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from "
+                            + oldInitMode[0] + " " + oldInitMode[1] + " to " + newCommandArguments[0]);
                 }
             } else if (commandArguments[0].equals("INIT_MODE_RANDOM") && commandArguments.length == 2) {
                 newCommandArguments[1] = commandArguments[1];
@@ -55,15 +59,17 @@ public class InitCommand implements CommandPlayer {
                 }
                 if (seed >= -1337 && seed <= 1337) {
                     commandHandlerPlayer.setInitMode(commandArguments);
-                    if(oldInitMode[0].equals("INIT_MODE_STOP")) {
-                        return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from " + oldInitMode[0] + " to " + newCommandArguments[0] + " " + newCommandArguments[1]);
+                    if (oldInitMode[0].equals("INIT_MODE_STOP")) {
+                        return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from "
+                                + oldInitMode[0] + " to " + newCommandArguments[0] + " " + newCommandArguments[1]);
                     } else {
-                        return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from " + oldInitMode[0] + " " + oldInitMode[1] + " to " + newCommandArguments[0] + " " + newCommandArguments[1]);
+                        return new CommandResult(CommandResultType.SUCCESS, "Changed init mode from "
+                                + oldInitMode[0] + " " + oldInitMode[1] + " to " + newCommandArguments[0] + " "
+                                + newCommandArguments[1]);
                     }
                 } else {
                     return new CommandResult(CommandResultType.FAILURE, "Your seed must be within -1337 and 1337");
                 }
-
             } else {
                 return new CommandResult(CommandResultType.FAILURE, "Mode not found");
             }

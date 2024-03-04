@@ -1,5 +1,9 @@
 package edu.kit.informatik.command.ai;
 
+/**
+ * Enum representing different AI commands.
+ * @author uistu
+ */
 public enum AICommandsEnum {
     STOP(0),
     MOV_R(1),
@@ -13,10 +17,20 @@ public enum AICommandsEnum {
 
     private final int position;
 
+    /**
+     * Constructs an AICommandsEnum object with the specified position.
+     *
+     * @param newPosition The position of the command
+     */
     AICommandsEnum(final int newPosition) {
         position = newPosition;
     }
 
+    /**
+     * Retrieves the position of the command.
+     *
+     * @return The position of the command
+     */
     public int getCommand() {
         return position;
     }
