@@ -1,6 +1,5 @@
 package edu.kit.informatik.command.player;
 
-import edu.kit.informatik.ArtificialIntelligence;
 import edu.kit.informatik.MemoryCell;
 import edu.kit.informatik.command.CommandResult;
 

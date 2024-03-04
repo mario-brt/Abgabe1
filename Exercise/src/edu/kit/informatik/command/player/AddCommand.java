@@ -80,7 +80,8 @@ public class AddCommand implements CommandPlayer {
                     singleCommands.add(AICommandsEnum.SWAP);
                     break;
                 default:
-                    return new CommandResult(CommandResultType.FAILURE, "AI command not found. Make sure you have no whitespaces in your name");
+                    return new CommandResult(CommandResultType.FAILURE, "AI command not found. "
+                            + "Make sure you have no whitespaces in your name");
             }
 
             int argA;

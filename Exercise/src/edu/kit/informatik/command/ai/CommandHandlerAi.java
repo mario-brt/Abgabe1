@@ -12,12 +12,12 @@ public class CommandHandlerAi {
      * Executes the given AI command on the memory cells.
      *
      * @param memory        The memory cells to execute the command on
-     * @param AICommand     The AI command to execute
+     * @param aICommand     The AI command to execute
      * @param argA          The first argument of the command
      * @param argB          The second argument of the command
      */
-    public void executeAiCommand(MemoryCell[] memory, AICommandsEnum AICommand, int argA, int argB) {
-        switch (AICommand) {
+    public void executeAiCommand(MemoryCell[] memory, AICommandsEnum aICommand, int argA, int argB) {
+        switch (aICommand) {
             case STOP:
                 stop();
                 break;

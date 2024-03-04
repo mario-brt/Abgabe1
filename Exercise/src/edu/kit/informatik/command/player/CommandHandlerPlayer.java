@@ -4,7 +4,19 @@ import edu.kit.informatik.ArtificialIntelligence;
 import edu.kit.informatik.MemoryCell;
 import edu.kit.informatik.command.CommandResult;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Arrays;
+
+
+
+
+
+
 
 /**
  * This class handles the commands issued by the player and executes them.
@@ -24,13 +36,26 @@ public final class CommandHandlerPlayer {
     private static final String INVALID_RESULT_TYPE_FORMAT = "Unexpected value: %s";
     private static final String HELP_COMMAND_NAME = "help";
     private static final String QUIT_COMMAND_NAME = "quit";
-
+    private static String[] initMode = new String[2];
+    private static List<ArtificialIntelligence> aiList = new ArrayList<>();
     private final MemoryCell[] memory;
     private final Map<String, CommandPlayer> commands;
     private boolean running = false;
     private GameState gameState = GameState.INIT_PHASE;
-    private static String[] initMode = new String[2];
-    private static List<ArtificialIntelligence> aiList = new ArrayList<>();
+
+
+    /**
+     * Constructs a new CommandHandlerPlayer instance with the given memory.
+     *
+     * @param memory The memory to initialize
+     */
+    public CommandHandlerPlayer(MemoryCell[] memory) {
+        this.memory = Objects.requireNonNull(memory);
+        this.commands = new HashMap<>();
+        this.initCommands();
+        initMode[0] = "INIT_MODE_STOP";
+        initMode[1] = "";
+    }
 
     /**
      * Sets the list of artificial intelligences.
@@ -68,18 +93,7 @@ public final class CommandHandlerPlayer {
         CommandHandlerPlayer.initMode = initMode;
     }
 
-    /**
-     * Constructs a new CommandHandlerPlayer instance with the given memory.
-     *
-     * @param memory The memory to initialize
-     */
-    public CommandHandlerPlayer(MemoryCell[] memory) {
-        this.memory = Objects.requireNonNull(memory);
-        this.commands = new HashMap<>();
-        this.initCommands();
-        initMode[0] = "INIT_MODE_STOP";
-        initMode[1] = "";
-    }
+
 
     /**
      * Handles the user input and executes the commands.

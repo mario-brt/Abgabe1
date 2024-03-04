@@ -18,6 +18,7 @@ public enum CommandResultType {
     /**
      * An error occured during processing the command.
      */
-    FAILURE;
+    FAILURE
 }
+
 
