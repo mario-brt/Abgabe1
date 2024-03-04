@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2024, KASTEL. All rights reserved.
- */
 
 package edu.kit.informatik.command;
 
@@ -10,7 +7,6 @@ package edu.kit.informatik.command;
  * @author Programmieren-Team
  */
 public enum CommandResultType {
-
     /**
      * The command was executed successfully.
      */
@@ -20,5 +16,3 @@ public enum CommandResultType {
      */
     FAILURE
 }
-
-

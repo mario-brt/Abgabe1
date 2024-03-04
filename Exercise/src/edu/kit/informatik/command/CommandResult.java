@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2024, KASTEL. All rights reserved.
- */
-
 package edu.kit.informatik.command;
 
 /**
@@ -47,5 +43,3 @@ public class CommandResult {
         return type;
     }
 }
-
-
