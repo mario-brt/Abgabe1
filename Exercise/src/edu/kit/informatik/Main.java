@@ -31,7 +31,7 @@ public class Main {
     }
     private static boolean checkArgumentsGameStart(String[] args) {
 
-        return checkArgumentsLength(args) && checkArgumentsLength(args) && checkMemorySize(args) && checkContainsWhitespace(args);
+        return checkArgumentsLength(args) && checkArgumentsRepetitive(args) && checkMemorySize(args) && checkContainsWhitespace(args);
     }
     private static boolean checkArgumentsRepetitive(String[] args) {
         for (int i = 1; i < args.length; i++) {

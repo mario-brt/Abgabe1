@@ -22,14 +22,14 @@ public class AddCommand implements CommandPlayer {
     /**
      * @param ignored          the memory to execute the command on
      * @param commandArguments the arguments of the command
-     * @param gameState
-     * @return
+     * @param gameState the state of the game
+     * @return Success or Failure and message
      */
     @Override
     public CommandResult execute(MemoryCell[] ignored, String[] commandArguments, GameState gameState) {
-        /*if (commandArguments.length % 3 != 1) {
-            return new CommandResult(CommandResultType.FAILURE, "your arguments are faulty");
-        }*/
+        if (gameState == GameState.PLAY_PHASE) {
+            return new CommandResult(CommandResultType.FAILURE, "this command is not available in this phase");
+        }
         List<ArtificialIntelligence> ais = commandHandlerPlayer.getAiList();
         if (!checkName(commandArguments[0])) {
             return new CommandResult(CommandResultType.FAILURE, "There is already another Ai with this name");
@@ -104,6 +104,7 @@ public class AddCommand implements CommandPlayer {
             }
             return true;
         }
+
         @Override
         public int getNumberOfArguments () {
             return 4;

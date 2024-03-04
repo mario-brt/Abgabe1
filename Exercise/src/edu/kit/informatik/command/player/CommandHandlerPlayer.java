@@ -119,7 +119,7 @@ public final class CommandHandlerPlayer {
     private void initCommands() {
         this.addCommand(INIT_COMMAND_NAME, new InitCommand(this));
         this.addCommand(ADD_COMMAND_NAME, new AddCommand(this));
-        this.addCommand(REMOVE_COMMAND_NAME, new RemoveCommand());
+        this.addCommand(REMOVE_COMMAND_NAME, new RemoveCommand(this));
         this.addCommand(START_COMMAND_NAME, new StartCommand());
 
     }
