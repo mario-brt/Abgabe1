@@ -7,8 +7,8 @@ public class ArtificialIntelligence {
 
 
     private  final String name;
-    private final AiCommand[] commands;
-    private int commandChainIndex = 0;
+    private AiCommand[] commands;
+    private boolean running = true;
 
 
     public ArtificialIntelligence(String name, AiCommand[] commandChain) {
@@ -23,11 +23,12 @@ public class ArtificialIntelligence {
     public String getName() {
         return name;
     }
+    public boolean isRunning() {
+        return running;
+    }
 
-    public int getCommandChainIndex() {
-        return commandChainIndex;
+    public void setRunning(boolean running) {
+        this.running = running;
     }
-    public void setCommandChainIndex() {
-        this.commandChainIndex = (commandChainIndex + 1) % commands.length;
-    }
+
 }

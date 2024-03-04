@@ -7,11 +7,13 @@ public class MemoryCell {
     private AICommandsEnum aiCommand;
     private int argument1;
     private int argument2;
-    private final String symbol;
+    private String symbol;
     private boolean wasEdited = false;
 
-    public MemoryCell(String symbol) {
-        this.symbol = symbol;
+    public MemoryCell() {
+        this.aiCommand = AICommandsEnum.STOP;
+        this.argument1 = 0;
+        this.argument2 = 0;
     }
 
     //Setter

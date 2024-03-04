@@ -1,12 +1,12 @@
 package edu.kit.informatik.command.ai;
 
-import edu.kit.informatik.Memory;
+import edu.kit.informatik.MemoryCell;
 
 public class CommandHandlerAi {
 
 
 
-    public void executeAiCommand(Memory memory, AICommandsEnum AICommandsEnum, int argA, int argB) {
+    public void executeAiCommand(MemoryCell[] memory, AICommandsEnum AICommandsEnum, int argA, int argB) {
         switch(AICommandsEnum){
             case STOP:
                 stop();
@@ -45,35 +45,35 @@ public class CommandHandlerAi {
 
     }
 
-    private void movR(Memory memory, int argA, int argB) {
+    private void movR(MemoryCell[] memory, int argA, int argB) {
 
     }
 
-    private void movI(Memory memory, int argA, int argB) {
+    private void movI(MemoryCell[] memory, int argA, int argB) {
 
     }
 
-    private void add(Memory memory, int argA, int argB) {
+    private void add(MemoryCell[] memory, int argA, int argB) {
 
     }
 
-    private void addR(Memory memory, int argA, int argB) {
+    private void addR(MemoryCell[] memory, int argA, int argB) {
 
     }
 
-    private void jmp(Memory memory, int argA, int argB) {
+    private void jmp(MemoryCell[] memory, int argA, int argB) {
 
     }
 
-    private void jmz(Memory memory, int argA, int argB) {
+    private void jmz(MemoryCell[] memory, int argA, int argB) {
 
     }
 
-    private void cmp(Memory memory, int argA, int argB) {
+    private void cmp(MemoryCell[] memory, int argA, int argB) {
 
     }
 
-    private void swap(Memory memory, int argA, int argB) {
+    private void swap(MemoryCell[] memory, int argA, int argB) {
 
     }
 
