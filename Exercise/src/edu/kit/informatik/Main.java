@@ -18,7 +18,7 @@ public class Main {
             System.out.println("Welcome to CodeFight 2024. Enter 'help' for more details");
             MemoryCell[] memory = new MemoryCell[Integer.parseInt(args[0])];
             for (int i = 0; i < memory.length; i++) {
-                memory[i] = new MemoryCell();
+                memory[i] = new MemoryCell(args[0]);
             }
             CommandHandlerPlayer commandPlayer = new CommandHandlerPlayer(memory, calcMaxAis(args));
             commandPlayer.handleUserInput();

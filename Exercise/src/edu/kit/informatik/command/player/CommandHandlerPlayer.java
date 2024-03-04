@@ -22,9 +22,14 @@ public final class CommandHandlerPlayer {
     private static final String START_COMMAND_NAME = "start-game";
     private static final String INVALID_RESULT_TYPE_FORMAT = "Unexpected value: %s";
     private static final String HELP_COMMAND_NAME = "help";
+    private static final String QUIT_COMMAND_NAME = "quit";
+
+
     private static int MAX_AIS;
 
-
+    public int getMaxAis() {
+        return MAX_AIS;
+    }
     private final MemoryCell[] memory;
     private final Map<String, CommandPlayer> commands;
     private boolean running = false;
@@ -36,8 +41,6 @@ public final class CommandHandlerPlayer {
 
 
 
-    private static final ArtificialIntelligence[] aiArray = new ArtificialIntelligence[5];
-
     public void setAiList(List<ArtificialIntelligence> aiList) {
         CommandHandlerPlayer.aiList = aiList;
     }
@@ -48,12 +51,6 @@ public final class CommandHandlerPlayer {
 
     private static List<ArtificialIntelligence> aiList = new ArrayList<>();
 
-    public ArtificialIntelligence[] getAiArray() {
-        return aiArray;
-    }
-    public void setAiArray(int index, ArtificialIntelligence ai) {
-        aiArray[index] = ai;
-    }
     public String[] getInitMode() {
         return initMode;
     }
@@ -98,7 +95,7 @@ public final class CommandHandlerPlayer {
     private void executeCommand(String commandName, String[] commandArguments) {
         if (!commands.containsKey(commandName)) {
             System.err.println(ERROR_PREFIX + COMMAND_NOT_FOUND_FORMAT.formatted(commandName));
-        } else if (commands.get(commandName).getNumberOfArguments() < commandArguments.length) {
+        } else if (commands.get(commandName).getNumberOfArguments() > commandArguments.length) {
             System.err.println(ERROR_PREFIX + WRONG_ARGUMENTS_COUNT_FORMAT.formatted(commandName));
         } else {
             CommandResult result = commands.get(commandName).execute(memory, commandArguments, gameState);
@@ -118,11 +115,12 @@ public final class CommandHandlerPlayer {
 
 
     private void initCommands() {
+        this.addCommand(QUIT_COMMAND_NAME, new QuitCommand(this));
         this.addCommand(INIT_COMMAND_NAME, new InitCommand(this));
         this.addCommand(ADD_COMMAND_NAME, new AddCommand(this));
         this.addCommand(REMOVE_COMMAND_NAME, new RemoveCommand(this));
         this.addCommand(HELP_COMMAND_NAME, new HelpCommand());
-        this.addCommand(START_COMMAND_NAME, new StartCommand());
+        this.addCommand(START_COMMAND_NAME, new StartCommand(this));
 
     }
     public void changeInitMode(String[] mode) {

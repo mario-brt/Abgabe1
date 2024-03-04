@@ -4,16 +4,18 @@ import edu.kit.informatik.command.ai.AICommandsEnum;
 
 public class MemoryCell {
 
-    private AICommandsEnum aiCommand;
-    private int argument1;
-    private int argument2;
+    private AICommandsEnum aiCommand = AICommandsEnum.STOP;
+    private int argument1 = 0;
+    private int argument2 = 0;
+
     private String symbol;
+
+
+
     private boolean wasEdited = false;
 
-    public MemoryCell() {
-        this.aiCommand = AICommandsEnum.STOP;
-        this.argument1 = 0;
-        this.argument2 = 0;
+    public MemoryCell(String defaultSymbol) {
+        this.symbol = defaultSymbol;
     }
 
     //Setter
@@ -29,6 +31,13 @@ public class MemoryCell {
     public void setArgument2(int argument2) {
         this.argument2 = argument2;
     }
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public void setWasEdited(boolean wasEdited) {
+        this.wasEdited = wasEdited;
+    }
 
     //Getter
     public AICommandsEnum getAiCommand() {
@@ -42,13 +51,15 @@ public class MemoryCell {
     public int getArgument2() {
         return argument2;
     }
-
     public String getSymbol() {
         return symbol;
     }
+
+
     public boolean isWasEdited() {
         return wasEdited;
     }
+
 
 
 }

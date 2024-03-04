@@ -96,9 +96,9 @@ public class AddCommand implements CommandPlayer {
 
 
         private boolean checkName(String name) {
-            for (ArtificialIntelligence ai : commandHandlerPlayer.getAiArray()) {
-
-                if(ai != null && ai.getName().equals(name)) {
+            List<ArtificialIntelligence> ais = commandHandlerPlayer.getAiList();
+            for (ArtificialIntelligence ai : ais) {
+                if (ai.getName().equals(name)) {
                     return false;
                 }
             }
