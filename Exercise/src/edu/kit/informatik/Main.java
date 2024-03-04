@@ -15,6 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         if(checkArgumentsGameStart(args)){
+            System.out.println("Welcome to CodeFight 2024. Enter 'help' for more details");
             MemoryCell[] memory = new MemoryCell[Integer.parseInt(args[0])];
             for (int i = 0; i < memory.length; i++) {
                 memory[i] = new MemoryCell();

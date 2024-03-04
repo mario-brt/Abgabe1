@@ -21,6 +21,7 @@ public final class CommandHandlerPlayer {
     private static final String REMOVE_COMMAND_NAME = "remove-ai";
     private static final String START_COMMAND_NAME = "start-game";
     private static final String INVALID_RESULT_TYPE_FORMAT = "Unexpected value: %s";
+    private static final String HELP_COMMAND_NAME = "help";
     private static int MAX_AIS;
 
 
@@ -120,6 +121,7 @@ public final class CommandHandlerPlayer {
         this.addCommand(INIT_COMMAND_NAME, new InitCommand(this));
         this.addCommand(ADD_COMMAND_NAME, new AddCommand(this));
         this.addCommand(REMOVE_COMMAND_NAME, new RemoveCommand(this));
+        this.addCommand(HELP_COMMAND_NAME, new HelpCommand());
         this.addCommand(START_COMMAND_NAME, new StartCommand());
 
     }
